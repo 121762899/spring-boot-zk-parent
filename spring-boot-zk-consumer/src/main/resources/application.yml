@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: spring-boot-zk-consumer
+server:
+  port: 8081
+hello:
+  service:
+    version: 1.0.0
+dubbo:
+  application:
+    id: consumer-id
+    name: spring-boot-zk-consumer
+  registry:
+    protocol: zookeeper
+    address: 127.0.0.1:2181
+    id: lin-registry-1
+management:
+  endpoint:
+    dubbo-configs:
+      enabled: true
+    dubbo:
+      enabled: true
+    dubbo-services:
+      enabled: true
+    dubbo-properties:
+      enabled: true
+    dubbo-shutdown:
+      enabled: true
+    dubbo-references:
+      enabled: true
+  health:
+    dubbo:
+      status:
+        defaults: memory
+        extras: load,threadpool
+  endpoints:
+    web:
+      exposure:
+        include: '*'

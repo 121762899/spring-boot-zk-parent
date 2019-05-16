@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: spring-boot-zk-provider
+server:
+  port: 8080
+dubbo:
+  registry:
+    protocol: zookeeper
+    address: 127.0.0.1:2181
+    id: lin-registry-1
+  protocol:
+    port: 12345
+    name: dubbo
+    id: dubbo
+    status: server
+  application:
+    name: spring-boot-zk-provider
+    id: linshen-dubbo-provider-id1
+    qos-enable: true
+    qos-port: 22222
+  scan:
+    basePackages: com.spring.zk.provider
+hello:
+  service:
+    version: 1.0.0
